@@ -1,0 +1,13 @@
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Anthony Alexandre', '896.160.092-30', 5300, TIMESTAMP WITHOUT TIME ZONE '1970-03-16T20:59:19Z', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Daiane Isabella', '582.999.292-29', 32000, TIMESTAMP WITHOUT TIME ZONE '1967-01-26T20:59:19Z', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Danilo Nicolas', '029.840.208-47', 3700, TIMESTAMP WITHOUT TIME ZONE '1977-07-07T20:59:19Z', 4);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Daniel Hugo', '515.102.605-44', 550, TIMESTAMP WITHOUT TIME ZONE '2005-12-19T20:59:19Z', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Manuela Rayssa', '931.963.221-90', 2100, TIMESTAMP WITHOUT TIME ZONE '1999-06-08T20:59:19Z', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Nelson Murilo', '515.102.605-44', 13200, TIMESTAMP WITHOUT TIME ZONE '1977-05-15T20:59:19Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Nathan Levi', '741.400.094-03', 997, TIMESTAMP WITHOUT TIME ZONE '2000-01-25T20:59:19Z', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Ayla Cristiane', '851.141.823-74', 7000, TIMESTAMP WITHOUT TIME ZONE '1992-01-24T20:59:19Z', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Alexandre Oliver', '515.102.605-44', 9400, TIMESTAMP WITHOUT TIME ZONE '1968-08-04T20:59:19Z', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Allana Rosângela', '242.154.159-00', 3500, TIMESTAMP WITHOUT TIME ZONE '1988-06-17T20:59:19Z', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Emanuelly Letícia', '469.593.152-47', 50000, TIMESTAMP WITHOUT TIME ZONE '1962-10-13T20:59:19Z', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Joaquim Pietro', '810.980.471-33', 1400, TIMESTAMP WITHOUT TIME ZONE '1994-09-17T20:59:19Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Caleb Igor', '885.383.292-43', 6900, TIMESTAMP WITHOUT TIME ZONE '1965-04-02T20:59:19Z', 3);
