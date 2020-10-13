@@ -1,7 +1,10 @@
 package com.devsuperior.dsrecursocliente.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dsrecursocliente.dto.ClientDTO;
 import com.devsuperior.dsrecursocliente.entities.Client;
 import com.devsuperior.dsrecursocliente.repositories.ClientRepository;
+import com.devsuperior.dsrecursocliente.services.exceptions.EntityNotFoundException;
+
 
 @Service
 public class ClientService {
@@ -25,5 +30,14 @@ public class ClientService {
 		
 		
 	}
+
+	@Transactional(readOnly = true)
+	public ClientDTO findById(Long id) {
+		Optional<Client> obj = repository.findById(id);
+		Client entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
+		return new ClientDTO(entity);
+	}
+	
+	//Aula 1-17 - 08:31
 
 }
