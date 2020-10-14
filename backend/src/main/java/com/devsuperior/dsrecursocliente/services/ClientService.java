@@ -7,28 +7,28 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dsrecursocliente.dto.ClientDTO;
 import com.devsuperior.dsrecursocliente.entities.Client;
 import com.devsuperior.dsrecursocliente.repositories.ClientRepository;
+import com.devsuperior.dsrecursocliente.services.exceptions.DatabaseException;
 import com.devsuperior.dsrecursocliente.services.exceptions.ResourceNotFoundException;
-
 
 @Service
 public class ClientService {
-	
+
 	@Autowired
 	private ClientRepository repository;
-	
+
 	@Transactional(readOnly = true)
-	public List<ClientDTO> findAll(){		
-		List<Client> list  = repository.findAll();		
+	public List<ClientDTO> findAll() {
+		List<Client> list = repository.findAll();
 		return list.stream().map(x -> new ClientDTO(x)).collect(Collectors.toList());
-		
-		
-		
+
 	}
 
 	@Transactional(readOnly = true)
@@ -38,14 +38,12 @@ public class ClientService {
 		return new ClientDTO(entity);
 	}
 
-
-	
 	@Transactional
 	public ClientDTO insert(ClientDTO dto) {
 		Client entity = new Client();
-		entity.setName(dto.getName());	
+		entity.setName(dto.getName());
 		entity.setCpf(dto.getCpf());
-		entity.setIncome(dto.getIncome());	
+		entity.setIncome(dto.getIncome());
 		entity.setBirthDate(dto.getBirthDate());
 		entity.setChildren(dto.getChildren());
 		entity = repository.save(entity);
@@ -62,14 +60,22 @@ public class ClientService {
 			entity.setBirthDate(dto.getBirthDate());
 			entity.setChildren(dto.getChildren());
 			return new ClientDTO(entity);
-		}
-		catch(EntityNotFoundException e) {
+		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Id not found " + id);
 		}
-		
-		
+
 	}
-	
-	
+
+	public void delete(Long id) {
+		try {
+			repository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("Id not found " + id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DatabaseException("Integrity violation");
+			
+		}
+	}
 
 }
